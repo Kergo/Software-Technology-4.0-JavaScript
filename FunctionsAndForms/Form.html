@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <style>select, input {
+        width: 100px
+    }</style>
+</head>
+
+<body>
+<form> 
+    Username:<input type="text" id="username"><br>
+    Email:<input type="email" id="email"><br>
+    Password:<input type="password" id="password"><br>
+    Repeat Password:<input type="password" id="repeatPassword"><br>
+</form>
+<input type="submit" onclick="submitForm()">
+<script>
+    function submitForm() {
+
+        let username = document.getElementById("username").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let repeatPassword = document.getElementById("repeatPassword").value;
+
+        if (username.length < 4) {
+            errorMessenger("userLength")
+        }
+        
+    }
+
+    function errorMessenger(msg) {
+
+        let err = document.createElement("p");
+
+        
+        switch (msg) {
+            case "userLength":
+                err.innerHTML = "Username should be at least 4 symbols"
+                document.body.appendChild(err);
+                break;
+        
+            default:
+                break;
+        }
+        
+    }
+</script>
+</body>
+</html>
